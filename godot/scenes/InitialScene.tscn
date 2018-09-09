@@ -1,0 +1,75 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://scenes/tiles/wall_left.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/tiles/moving_platfom.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/tiles/short_platform.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/tiles/wall_right.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/images/player.png" type="Texture" id=5]
+[ext_resource path="res://scenes/tiles/cloud_2.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/tiles/long_platform.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/tiles/cloud_1.tscn" type="PackedScene" id=8]
+
+[node name="InitialScene" type="Node" index="0"]
+
+[node name="wall_left2" parent="." index="0" instance=ExtResource( 1 )]
+
+position = Vector2( 12.1082, 648.004 )
+scale = Vector2( 1.12664, 1.12664 )
+
+[node name="wall_left" parent="." index="1" instance=ExtResource( 1 )]
+
+position = Vector2( 5.29208, -117.687 )
+scale = Vector2( 1.12664, 1.12664 )
+
+[node name="moving_platfom3" parent="." index="2" instance=ExtResource( 2 )]
+
+position = Vector2( 832.329, -242.466 )
+scale = Vector2( 1.12664, 1.12664 )
+
+[node name="short_platform2" parent="." index="3" instance=ExtResource( 3 )]
+
+position = Vector2( 1525.31, -658.257 )
+scale = Vector2( 1.12664, 1.12664 )
+
+[node name="wall_right" parent="." index="4" instance=ExtResource( 4 )]
+
+position = Vector2( 1881.38, 104.627 )
+scale = Vector2( 1.3267, 1.56791 )
+
+[node name="player" type="Sprite" parent="." index="5"]
+
+position = Vector2( 840.889, 491.916 )
+scale = Vector2( 1.12664, 1.12664 )
+texture = ExtResource( 5 )
+
+[node name="cloud_2" parent="." index="6" instance=ExtResource( 6 )]
+
+position = Vector2( 1283.11, 621.506 )
+scale = Vector2( 2.3126, 2.3126 )
+z_index = -100
+_sections_unfolded = [ "Z Index" ]
+
+[node name="moving_platfom2" parent="." index="7" instance=ExtResource( 2 )]
+
+position = Vector2( 868.682, 693.446 )
+
+[node name="short_platform" parent="." index="8" instance=ExtResource( 3 )]
+
+position = Vector2( 1557.12, 475.326 )
+
+[node name="long_platform" parent="." index="9" instance=ExtResource( 7 )]
+
+position = Vector2( 655.845, 175.084 )
+scale = Vector2( 1.12664, 1.12664 )
+
+[node name="moving_platfom" parent="." index="10" instance=ExtResource( 2 )]
+
+position = Vector2( 285.773, 947.022 )
+
+[node name="cloud_1" parent="." index="11" instance=ExtResource( 8 )]
+
+position = Vector2( 448.591, 408.789 )
+z_index = -100
+_sections_unfolded = [ "Z Index" ]
+
+
