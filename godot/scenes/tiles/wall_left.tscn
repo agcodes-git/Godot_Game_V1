@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/images/wall.png" type="Texture" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 45.125, 193.135 )
+
+[node name="wall_left" type="Sprite" index="0"]
+
+position = Vector2( 105.016, 211.015 )
+texture = ExtResource( 1 )
+flip_h = true
+_sections_unfolded = [ "Offset" ]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
+
+position = Vector2( 10, 0 )
+shape = SubResource( 1 )
+
+
