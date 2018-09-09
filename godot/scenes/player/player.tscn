@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://assets/images/player.png" type="Texture" id=1]
-[ext_resource path="res://scenes/StateManager.gd" type="Script" id=2]
-[ext_resource path="res://scenes/ExampleInput.gd" type="Script" id=3]
+[ext_resource path="res://scenes/player/StateManager.gd" type="Script" id=2]
+[ext_resource path="res://scenes/player/ExampleInput.gd" type="Script" id=3]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
@@ -10,7 +10,7 @@ custom_solver_bias = 0.0
 radius = 43.0347
 height = 133.402
 
-[node name="player" type="KinematicBody2D" index="0"]
+[node name="player" type="KinematicBody2D"]
 
 position = Vector2( 131.781, 120.611 )
 input_pickable = false
