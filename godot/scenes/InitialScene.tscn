@@ -9,7 +9,7 @@
 [ext_resource path="res://scenes/tiles/cloud_1.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/player/player.tscn" type="PackedScene" id=8]
 
-[node name="InitialScene" type="Node" index="0"]
+[node name="InitialScene" type="Node"]
 
 [node name="wall_left2" parent="." index="0" instance=ExtResource( 1 )]
 

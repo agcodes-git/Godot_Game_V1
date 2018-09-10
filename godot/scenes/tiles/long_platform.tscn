@@ -7,7 +7,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 547.609, 10 )
 
-[node name="long_platform" type="Sprite" index="0"]
+[node name="long_platform" type="Sprite"]
 
 position = Vector2( 560.085, 122.57 )
 texture = ExtResource( 1 )
@@ -21,10 +21,13 @@ constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
+_sections_unfolded = [ "Collision" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
 
 position = Vector2( 0, -30 )
 shape = SubResource( 1 )
+one_way_collision = true
+_sections_unfolded = [ "Material", "Transform", "Visibility", "Z Index" ]
 
 

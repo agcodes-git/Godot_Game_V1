@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://assets/images/player.png" type="Texture" id=1]
-[ext_resource path="res://scenes/player/StateManager.gd" type="Script" id=2]
-[ext_resource path="res://scenes/player/ExampleInput.gd" type="Script" id=3]
+[ext_resource path="res://scenes/player/Motion.gd" type="Script" id=2]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
@@ -17,6 +16,7 @@ input_pickable = false
 collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
+_sections_unfolded = [ "Collision", "Material", "Pause", "Pickable", "Transform", "Visibility", "Z Index", "collision" ]
 
 [node name="player" type="Sprite" parent="." index="0"]
 
@@ -27,6 +27,7 @@ texture = ExtResource( 1 )
 
 position = Vector2( 5.36443, 6.82745 )
 shape = SubResource( 1 )
+_sections_unfolded = [ "Material", "Transform", "Visibility", "Z Index" ]
 
 [node name="StateDebugger" type="RichTextLabel" parent="." index="2"]
 
@@ -65,12 +66,8 @@ playback_default_blend_time = 0.0
 playback_speed = 1.0
 blend_times = [  ]
 
-[node name="StateManager" type="Node" parent="." index="4"]
+[node name="Motion" type="Node" parent="." index="4"]
 
 script = ExtResource( 2 )
-
-[node name="ExampleInput" type="Node" parent="." index="5"]
-
-script = ExtResource( 3 )
 
 

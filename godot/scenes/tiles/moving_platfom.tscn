@@ -7,7 +7,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 223.866, 10 )
 
-[node name="moving_platfom" type="Sprite" index="0"]
+[node name="moving_platfom" type="Sprite"]
 
 position = Vector2( 272.141, 124.529 )
 texture = ExtResource( 1 )
@@ -26,5 +26,6 @@ bounce = 0.0
 
 position = Vector2( 0, -39 )
 shape = SubResource( 1 )
+one_way_collision = true
 
 
