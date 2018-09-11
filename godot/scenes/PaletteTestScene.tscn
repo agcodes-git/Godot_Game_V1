@@ -1,0 +1,68 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://scenes/PaletteTestScene.gd" type="Script" id=1]
+[ext_resource path="res://scenes/tiles/long_platform.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/tiles/moving_platfom.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/tiles/cloud_1.tscn" type="PackedScene" id=4]
+[ext_resource path="res://shader/color_replace_shader.tres" type="Shader" id=5]
+[ext_resource path="res://assets/images/colour_tests/orange_teal.png" type="Texture" id=6]
+
+[sub_resource type="ShaderMaterial" id=1]
+
+render_priority = 0
+shader = ExtResource( 5 )
+shader_param/u_color_key = Color( 0.0144196, 0.527344, 0.395105, 1 )
+shader_param/u_replacement_color = Color( 0.388336, 0.302734, 0.625, 1 )
+shader_param/u_tolerance = 0.5
+_sections_unfolded = [ "shader_param" ]
+
+[node name="PaletteTestScene" type="Node2D" index="0"]
+
+script = ExtResource( 1 )
+
+[node name="long_platform" parent="." index="0" instance=ExtResource( 2 )]
+
+position = Vector2( -471.926, 194.563 )
+
+[node name="moving_platfom" parent="." index="1" instance=ExtResource( 3 )]
+
+position = Vector2( -244.464, -258.651 )
+
+[node name="cloud_1" parent="." index="2" instance=ExtResource( 4 )]
+
+position = Vector2( -362.178, 622.598 )
+
+[node name="orange_teal" type="Sprite" parent="." index="3"]
+
+material = SubResource( 1 )
+position = Vector2( 1098.42, 299.963 )
+texture = ExtResource( 6 )
+_sections_unfolded = [ "Material" ]
+
+[node name="Camera2D" type="Camera2D" parent="." index="4"]
+
+position = Vector2( 581.765, 325.545 )
+anchor_mode = 1
+rotating = false
+current = true
+zoom = Vector2( 2, 2 )
+limit_left = -10000000
+limit_top = -10000000
+limit_right = 10000000
+limit_bottom = 10000000
+limit_smoothed = false
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+smoothing_enabled = false
+smoothing_speed = 5.0
+offset_v = 0.0
+offset_h = 0.0
+drag_margin_left = 0.2
+drag_margin_top = 0.2
+drag_margin_right = 0.2
+drag_margin_bottom = 0.2
+editor_draw_screen = true
+editor_draw_limits = false
+editor_draw_drag_margin = false
+
+
