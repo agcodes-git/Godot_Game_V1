@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://assets/images/player.png" type="Texture" id=1]
 [ext_resource path="res://scenes/player/Motion.gd" type="Script" id=2]
+[ext_resource path="res://scenes/player/UseBoomerang.gd" type="Script" id=3]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
@@ -9,7 +10,7 @@ custom_solver_bias = 0.0
 radius = 43.0347
 height = 133.402
 
-[node name="player" type="KinematicBody2D"]
+[node name="player" type="KinematicBody2D" index="0"]
 
 position = Vector2( 131.781, 120.611 )
 input_pickable = false
@@ -69,5 +70,18 @@ blend_times = [  ]
 [node name="Motion" type="Node" parent="." index="4"]
 
 script = ExtResource( 2 )
+
+[node name="UseBoomerang" type="Node" parent="." index="5"]
+
+script = ExtResource( 3 )
+
+[node name="Timer" type="Timer" parent="UseBoomerang" index="0"]
+
+process_mode = 1
+wait_time = 0.5
+one_shot = true
+autostart = false
+
+[connection signal="timeout" from="UseBoomerang/Timer" to="UseBoomerang" method="_on_Timer_timeout"]
 
 

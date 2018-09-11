@@ -7,7 +7,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 45.125, 193.135 )
 
-[node name="wall_left" type="Sprite" index="0"]
+[node name="wall_left" type="Sprite"]
 
 position = Vector2( 105.016, 211.015 )
 texture = ExtResource( 1 )
@@ -18,11 +18,12 @@ _sections_unfolded = [ "Offset" ]
 
 input_pickable = false
 collision_layer = 1
-collision_mask = 1
+collision_mask = 3
 constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
+_sections_unfolded = [ "Collision" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
 
