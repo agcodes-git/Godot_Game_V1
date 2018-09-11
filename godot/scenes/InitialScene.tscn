@@ -9,7 +9,7 @@
 [ext_resource path="res://scenes/tiles/cloud_1.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/player/player.tscn" type="PackedScene" id=8]
 
-[node name="InitialScene" type="Node"]
+[node name="InitialScene" type="Node" index="0"]
 
 [node name="wall_left2" parent="." index="0" instance=ExtResource( 1 )]
 
@@ -69,5 +69,30 @@ _sections_unfolded = [ "Z Index" ]
 [node name="player" parent="." index="11" instance=ExtResource( 8 )]
 
 position = Vector2( 863.391, 500.049 )
+
+[node name="Camera2D" type="Camera2D" parent="player" index="5"]
+
+anchor_mode = 1
+rotating = false
+current = true
+zoom = Vector2( 2, 2 )
+limit_left = -10000000
+limit_top = -10000000
+limit_right = 10000000
+limit_bottom = 10000000
+limit_smoothed = false
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+smoothing_enabled = false
+smoothing_speed = 5.0
+offset_v = 0.0
+offset_h = 0.0
+drag_margin_left = 0.2
+drag_margin_top = 0.2
+drag_margin_right = 0.2
+drag_margin_bottom = 0.2
+editor_draw_screen = true
+editor_draw_limits = false
+editor_draw_drag_margin = false
 
 
