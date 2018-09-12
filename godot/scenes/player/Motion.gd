@@ -12,13 +12,13 @@ func _physics_process(delta):
     self.motion = self.player.move_and_slide( self.motion, UP )
     
 func apply_gravity(delta): 
-    self.motion.y += 2500 * delta
+    self.motion.y += 6000 * delta
 
 func update_input():
     if Input.is_action_pressed("ui_up") and self.player.is_on_floor():
-        motion.y = -1500
+        motion.y = -2500
         
-    if Input.is_action_pressed("ui_right"): motion.x = 500
-    elif Input.is_action_pressed("ui_left"): motion.x = -500
+    if Input.is_action_pressed("ui_right"): motion.x = 1000
+    elif Input.is_action_pressed("ui_left"): motion.x = -1000
     else: motion.x = 0
     
