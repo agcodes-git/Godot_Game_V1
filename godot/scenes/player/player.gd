@@ -27,6 +27,7 @@ func _on_Timer_timeout():
 	
 func swap_with_boomerang():
 	if boo != null:
-    	global_position = boo.global_position
-    	boo.queue_free()
-    	boo = null
+		get_node("Timer").wait_time = 0.5
+		global_position = boo.global_position
+		boo.queue_free()
+		boo = null
