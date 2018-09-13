@@ -9,7 +9,7 @@
 [ext_resource path="res://scenes/tiles/cloud_1.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/player/player.tscn" type="PackedScene" id=8]
 
-[node name="InitialScene" type="Node" index="0"]
+[node name="InitialScene" type="Node"]
 
 [node name="wall_left2" parent="." index="0" instance=ExtResource( 1 )]
 
@@ -69,6 +69,7 @@ _sections_unfolded = [ "Z Index" ]
 [node name="player" parent="." index="11" instance=ExtResource( 8 )]
 
 position = Vector2( 863.391, 500.049 )
+boomerang_velocity = 3000
 
 [node name="Camera2D" type="Camera2D" parent="player" index="6"]
 

@@ -19,6 +19,7 @@ collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "Material", "Pause", "Pickable", "Transform", "Visibility", "Z Index", "collision" ]
+boomerang_velocity = 3000
 
 [node name="player" type="Sprite" parent="." index="0"]
 
@@ -74,14 +75,5 @@ script = ExtResource( 3 )
 gravity_accel = 6000
 jump_impulse = 2500
 movement_vel = 1000
-
-[node name="Timer" type="Timer" parent="." index="5"]
-
-process_mode = 1
-wait_time = 0.5
-one_shot = true
-autostart = false
-
-[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 
 
