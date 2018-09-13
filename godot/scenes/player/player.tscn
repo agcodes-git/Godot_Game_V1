@@ -71,6 +71,9 @@ blend_times = [  ]
 [node name="Motion" type="Node" parent="." index="4"]
 
 script = ExtResource( 3 )
+gravity_accel = 6000
+jump_impulse = 2500
+movement_vel = 1000
 
 [node name="Timer" type="Timer" parent="." index="5"]
 
