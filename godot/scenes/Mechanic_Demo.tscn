@@ -1,0 +1,93 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://scenes/tiles/short_platform.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/tiles/long_platform.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/tiles/moving_platfom.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/tiles/wall_right.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/tiles/wall_left.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/player/player.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/tiles/cloud_2.tscn" type="PackedScene" id=7]
+
+[node name="Mechanic_Demo" type="Node" index="0"]
+
+[node name="short_platform" parent="." index="0" instance=ExtResource( 1 )]
+
+position = Vector2( 1366.97, 593.526 )
+
+[node name="long_platform" parent="." index="1" instance=ExtResource( 2 )]
+
+position = Vector2( 541.54, 1043.65 )
+
+[node name="moving_platfom" parent="." index="2" instance=ExtResource( 3 )]
+
+position = Vector2( 635.442, -204.679 )
+
+[node name="wall_right" parent="moving_platfom" index="1" instance=ExtResource( 4 )]
+
+position = Vector2( 208.525, -764.188 )
+
+[node name="wall_left" parent="moving_platfom/wall_right" index="1" instance=ExtResource( 5 )]
+
+position = Vector2( -329.753, -245.457 )
+
+[node name="wall_right" parent="moving_platfom/wall_right/wall_left" index="1" instance=ExtResource( 4 )]
+
+position = Vector2( 342.441, -260.462 )
+
+[node name="wall_left" parent="moving_platfom/wall_right/wall_left" index="2" instance=ExtResource( 5 )]
+
+position = Vector2( -12.3033, -506.484 )
+
+[node name="long_platform" parent="moving_platfom/wall_right/wall_left" index="3" instance=ExtResource( 2 )]
+
+position = Vector2( 844.824, -422.412 )
+
+[node name="player" parent="." index="3" instance=ExtResource( 6 )]
+
+position = Vector2( 391.414, 862.419 )
+z_index = 1
+
+[node name="Camera2D" type="Camera2D" parent="player" index="5"]
+
+anchor_mode = 1
+rotating = false
+current = true
+zoom = Vector2( 2, 2 )
+limit_left = -10000000
+limit_top = -10000000
+limit_right = 10000000
+limit_bottom = 10000000
+limit_smoothed = false
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+smoothing_enabled = true
+smoothing_speed = 5.0
+offset_v = 0.0
+offset_h = 0.0
+drag_margin_left = 0.2
+drag_margin_top = 0.2
+drag_margin_right = 0.2
+drag_margin_bottom = 0.2
+editor_draw_screen = true
+editor_draw_limits = false
+editor_draw_drag_margin = false
+_sections_unfolded = [ "Smoothing" ]
+
+[node name="short_platform2" parent="." index="4" instance=ExtResource( 1 )]
+
+position = Vector2( 581.249, 205.381 )
+
+[node name="wall_left" parent="." index="5" instance=ExtResource( 5 )]
+
+position = Vector2( 803.971, 77.5256 )
+scale = Vector2( 1, 0.640025 )
+
+[node name="wall_left2" parent="." index="6" instance=ExtResource( 5 )]
+
+position = Vector2( 840.642, -419.436 )
+
+[node name="cloud_2" parent="." index="7" instance=ExtResource( 7 )]
+
+position = Vector2( 1327.78, -2031.32 )
+
+
