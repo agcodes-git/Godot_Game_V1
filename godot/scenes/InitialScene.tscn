@@ -69,6 +69,7 @@ _sections_unfolded = [ "Z Index" ]
 [node name="player" parent="." index="11" instance=ExtResource( 8 )]
 
 position = Vector2( 863.391, 500.049 )
+boomerang_velocity = 3000
 
 [node name="Camera2D" type="Camera2D" parent="player" index="6"]
 

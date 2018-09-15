@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://assets/images/player.png" type="Texture" id=1]
-[ext_resource path="res://scenes/player/Motion.gd" type="Script" id=2]
-[ext_resource path="res://scenes/player/UseBoomerang.gd" type="Script" id=3]
+[ext_resource path="res://scenes/player/player.gd" type="Script" id=1]
+[ext_resource path="res://assets/images/player.png" type="Texture" id=2]
+[ext_resource path="res://scenes/player/Motion.gd" type="Script" id=3]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
@@ -17,12 +17,14 @@ input_pickable = false
 collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
+script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "Material", "Pause", "Pickable", "Transform", "Visibility", "Z Index", "collision" ]
+boomerang_velocity = 3000
 
 [node name="player" type="Sprite" parent="." index="0"]
 
 position = Vector2( 7.56421, 14.9516 )
-texture = ExtResource( 1 )
+texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
@@ -69,19 +71,9 @@ blend_times = [  ]
 
 [node name="Motion" type="Node" parent="." index="4"]
 
-script = ExtResource( 2 )
-
-[node name="UseBoomerang" type="Node" parent="." index="5"]
-
 script = ExtResource( 3 )
-
-[node name="Timer" type="Timer" parent="UseBoomerang" index="0"]
-
-process_mode = 1
-wait_time = 0.5
-one_shot = true
-autostart = false
-
-[connection signal="timeout" from="UseBoomerang/Timer" to="UseBoomerang" method="_on_Timer_timeout"]
+gravity_accel = 6000
+jump_impulse = 2500
+movement_vel = 1000
 
 
