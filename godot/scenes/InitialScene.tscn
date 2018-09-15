@@ -9,7 +9,7 @@
 [ext_resource path="res://scenes/tiles/cloud_1.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/player/player.tscn" type="PackedScene" id=8]
 
-[node name="InitialScene" type="Node" index="0"]
+[node name="InitialScene" type="Node"]
 
 [node name="wall_left2" parent="." index="0" instance=ExtResource( 1 )]
 
@@ -61,7 +61,7 @@ scale = Vector2( 1.12664, 1.12664 )
 [node name="moving_platfom" parent="." index="9" instance=ExtResource( 2 )]
 
 position = Vector2( 285.773, 947.022 )
-motion = Vector2( 500, 0 )
+motion = Vector2( 0, 500 )
 timer_duration = 2
 
 [node name="cloud_1" parent="." index="10" instance=ExtResource( 7 )]

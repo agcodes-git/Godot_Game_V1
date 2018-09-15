@@ -20,6 +20,9 @@ func _process(delta):
 	
 	self.motion = self.player.move_and_slide( self.motion, UP )
 	
+	# Move by the motion vector given by the platform, but halve the y-component.
+	# I noticed the player bouncing on the upward motion and thought it might be overshooting. For
+	# whatever reasons, diving by 2 appears to work.
 	if colliding and ray.get_collider().is_in_group("moving_platforms"):
 		self.motion = player.move_and_slide( Vector2(ray.get_collider().motion.x, ray.get_collider().motion.y/2) )
 		#self.motion = player.move_and_slide( ray.get_collider().motion )
