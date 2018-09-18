@@ -1,19 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scenes/PaletteTestScene.gd" type="Script" id=1]
 [ext_resource path="res://assets/images/colour_tests/unnamed.png" type="Texture" id=2]
-[ext_resource path="res://shader/color_replace_material.tres" type="Material" id=3]
-[ext_resource path="res://assets/images/moving_platfom.png" type="Texture" id=4]
+[ext_resource path="res://assets/images/moving_platfom.png" type="Texture" id=3]
+[ext_resource path="res://shader/color_replace_material.tres" type="Material" id=4]
 [ext_resource path="res://scenes/boomerang/spin_clean.png" type="Texture" id=5]
-
-[sub_resource type="Shader" id=1]
-
-code = ""
-
-[sub_resource type="ShaderMaterial" id=2]
-
-render_priority = 0
-shader = SubResource( 1 )
 
 [node name="PaletteTestScene" type="Node2D" index="0"]
 
@@ -89,23 +80,21 @@ align = 1
 
 [node name="TestImage" type="Sprite" parent="Sprites" index="0"]
 
-material = SubResource( 2 )
-position = Vector2( 1050, 599 )
+position = Vector2( 1047.48, 599 )
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Material" ]
 
 [node name="moving_platfom" type="Sprite" parent="Sprites" index="1"]
 
-material = ExtResource( 3 )
-position = Vector2( 702.971, 334.771 )
-texture = ExtResource( 4 )
+position = Vector2( 702.971, 332.253 )
+texture = ExtResource( 3 )
 _sections_unfolded = [ "Material" ]
 
 [node name="tester" type="Node2D" parent="." index="3"]
 
 [node name="spin_clean" type="Sprite" parent="tester" index="0"]
 
-material = ExtResource( 3 )
+material = ExtResource( 4 )
 position = Vector2( 1554.68, 490.215 )
 texture = ExtResource( 5 )
 _sections_unfolded = [ "Material" ]

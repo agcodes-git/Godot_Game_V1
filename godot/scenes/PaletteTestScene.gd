@@ -5,37 +5,38 @@ extends Node2D
 	# colors can be set plus contrasting sketchlines / outlines
 
 # TODO: Alter shader to change 5 colors
+# TODO: Convert color values to float
 # TODO: Concern: Is this method expensive for large number of sprites or colors?
 
-const palette_shader = preload("res://shader/color_replace_shader.tres")
+var palette_shader = load("res://shader/color_replace_shader.tres")
 var color_counter = 0 # cycle through colors for the demo
 
  # Dictionary of available color palettes
  # Each palette consists of 5 colors and a constrasting outline color
 const cols_available = {
 	"default": { # Same as color_keys
-		0 : Color(95, 117, 142), # Background
-		1: Color(56, 57, 97), # Background Decor
-		2: Color(59, 31, 43), # Foreground
-		3: Color(255, 0, 0), # Bold accents
-		4: Color(219, 223, 172) # Bold accents 2
+		0 : Color(0.37, 0.46, 0.56, 1), # Background
+		1 : Color(0.22, 0.22, 0.38, 1), # Background Decor
+		2 : Color(0.23, 0.12, 0.17), # Foreground
+		3 : Color(1, 0, 0), # Bold accents
+		4 : Color(0.86, 0.87, 0.67) # Bold accents 2
 	},
 	"cream": {
-		0: Color(219, 223, 172), # Background
-		1: Color(95, 117, 142), # Background Decor
-		2: Color(59, 31, 43), # Foreground
-		3: Color(201, 225, 0), # Bold accents
-		4: Color(255, 0, 0) # Bold accents 2
+		0: Color(0.86, 0.87, 0.67), # Background
+		1: Color(0.37, 0.46, 0.56), # Background Decor
+		2: Color(0.23, 0.12, 0.17), # Foreground
+		3: Color(0.79, 0.88, 0), # Bold accents
+		4: Color(1, 0, 0) # Bold accents 2
 	}
 }
 
 	# Dictionary describing colors in the asset images
 const color_keys = {
-	0 : Color(95, 117, 142), # Background
-	1 : Color(56, 57, 97), # Background Decor
-	2 : Color(59, 31, 43), # Foreground
-	3 : Color(255, 0, 0), # Bold accents
-	4 : Color(219, 223, 172) # Bold accents 2
+	0 : Color(0.37, 0.46, 0.56, 1), # Background
+	1 : Color(0.22, 0.22, 0.38, 1), # Background Decor
+	2 : Color(0.23, 0.12, 0.17), # Foreground
+	3 : Color(1, 0, 0), # Bold accents
+	4 : Color(0.86, 0.87, 0.67) # Bold accents 2
 }
 
 func _ready():
@@ -44,8 +45,10 @@ func _ready():
 	var mat = ShaderMaterial.new()
 	mat.set_shader(palette_shader)
 	mat.set_shader_param("u_color_key", color_keys[0])
+	mat.set_shader_param("u_tolerance", 0.2)
 	for sprite in $Sprites.get_children():
-		sprite.set_material(mat)
+		var dmat = mat.duplicate(true)
+		sprite.set_material(dmat)
 
 func test_pressed():
 	var a
@@ -61,5 +64,5 @@ func test_pressed():
 		child.material.set_shader_param("u_replacement_color", cols_available["default"][color_counter])
 		print(child.material.get_shader_param("u_color_key"))
 		print(child.material.get_shader_param("u_replacement_color"))
-	$tester/spin_clean.material.set_shader_param("u_replacement_color", cols_available["default"][color_counter])
+	#$tester/spin_clean.material.set_shader_param("u_replacement_color", cols_available["default"][color_counter])
 	

@@ -4,9 +4,21 @@
 
 code = "shader_type canvas_item;
 
-// Which color you want to change
+// Which colors you want to change
+uniform vec4 key_0 : hint_color;
+uniform vec4 key_1 : hint_color;
+uniform vec4 key_2 : hint_color;
+uniform vec4 key_3 : hint_color;
+uniform vec4 key_4 : hint_color;
+// TODO: maybe key_5 for outlines 
 uniform vec4 u_color_key : hint_color;
-// Which color to replace it with
+// Which colors to replace it with
+uniform vec4 replacement_0 : hint_color;
+uniform vec4 replacement_1 : hint_color;
+uniform vec4 replacement_2 : hint_color;
+uniform vec4 replacement_3 : hint_color;
+uniform vec4 replacement_4 : hint_color;
+// TODO: mayber replacement_5 for outlines
 uniform vec4 u_replacement_color : hint_color;
 // How much tolerance for the replacement color
 uniform float u_tolerance;
