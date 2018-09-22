@@ -4,14 +4,16 @@
 
 code = "shader_type canvas_item;
 
+// TODO: Have a dig and see if array / loop is an option
+// TODO: Look for possible alternative method (bit naive comment from original appropriated code)
+
 // Which colors you want to change
-uniform vec4 key_0 : hint_color;
+uniform vec4 key_0 : hint_color; //BG
 uniform vec4 key_1 : hint_color;
 uniform vec4 key_2 : hint_color;
 uniform vec4 key_3 : hint_color;
 uniform vec4 key_4 : hint_color;
 // TODO: maybe key_5 for outlines 
-uniform vec4 u_color_key : hint_color;
 // Which colors to replace it with
 uniform vec4 replacement_0 : hint_color;
 uniform vec4 replacement_1 : hint_color;
@@ -19,22 +21,35 @@ uniform vec4 replacement_2 : hint_color;
 uniform vec4 replacement_3 : hint_color;
 uniform vec4 replacement_4 : hint_color;
 // TODO: mayber replacement_5 for outlines
-uniform vec4 u_replacement_color : hint_color;
 // How much tolerance for the replacement color
 uniform float u_tolerance;
+
+vec3 swap_cols(vec3 o_col, vec4 u_color_key, vec4 u_replacement_color) {
+	// Get a rough degree of difference between the texture color and the color key
+	vec3 diff3 = o_col - u_color_key.rgb;
+	float m = max(max(abs(diff3.r), abs(diff3.g)), abs(diff3.b));
+	// Change color of pixels below tolerance threshold while keeping shades, if any (bit naive, there may be better ways)
+	float brightness = length(o_col);
+	return mix(o_col, u_replacement_color.rgb * brightness, step(m, u_tolerance));
+	}
 
 void fragment() {
 	// Get color from the sprite texture at the current pixel we are rendering
 	vec4 original_color = texture(TEXTURE, UV);
 	vec3 col = original_color.rgb;
-	// Get a rough degree of difference between the texture color and the color key
-	vec3 diff3 = col - u_color_key.rgb;
-	float m = max(max(abs(diff3.r), abs(diff3.g)), abs(diff3.b));
-	// Change color of pixels below tolerance threshold, while keeping shades if any (a bit naive, there may better ways)
-	float brightness = length(col);
-	col = mix(col, u_replacement_color.rgb * brightness, step(m, u_tolerance));
-	// Assign final color for the pixel, and preserve transparency
+	// TODO (current method very naive) - try to think of most efficient method (consider e.g. indexing keys by red value)
+	// swap_cols for each key, replacement pair
+	col = swap_cols(col, key_0, replacement_0);
+	COLOR = vec4(col.rgb, original_color.a);
+	col = swap_cols(col, key_1, replacement_1);
+	COLOR = vec4(col.rgb, original_color.a);
+	col = swap_cols(col, key_2, replacement_2);
+	COLOR = vec4(col.rgb, original_color.a);
+	col = swap_cols(col, key_3, replacement_3);
+	COLOR = vec4(col.rgb, original_color.a);
+	col = swap_cols(col, key_4, replacement_4);
 	COLOR = vec4(col.rgb, original_color.a);
 }
 "
+_sections_unfolded = [ "Resource" ]
 

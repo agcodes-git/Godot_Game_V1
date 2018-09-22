@@ -6,8 +6,16 @@
 
 render_priority = 0
 shader = ExtResource( 1 )
-shader_param/u_color_key = Color( 0.168627, 0.168627, 0.168627, 1 )
-shader_param/u_replacement_color = Color( 0, 1, 1, 1 )
-shader_param/u_tolerance = 0.1
-_sections_unfolded = [ "shader_param" ]
+shader_param/key_0 = Color( 0, 0, 0, 1 )
+shader_param/key_1 = null
+shader_param/key_2 = null
+shader_param/key_3 = null
+shader_param/key_4 = null
+shader_param/replacement_0 = null
+shader_param/replacement_1 = null
+shader_param/replacement_2 = null
+shader_param/replacement_3 = null
+shader_param/replacement_4 = null
+shader_param/u_tolerance = null
+_sections_unfolded = [ "Resource", "shader_param" ]
 

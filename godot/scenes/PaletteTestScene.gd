@@ -17,16 +17,16 @@ const cols_available = {
 	"default": { # Same as color_keys
 		0 : Color(0.37, 0.46, 0.56, 1), # Background
 		1 : Color(0.22, 0.22, 0.38, 1), # Background Decor
-		2 : Color(0.23, 0.12, 0.17), # Foreground
-		3 : Color(1, 0, 0), # Bold accents
-		4 : Color(0.86, 0.87, 0.67) # Bold accents 2
+		2 : Color(0.23, 0.12, 0.17, 1), # Foreground
+		3 : Color(1, 0, 0, 1), # Bold accents
+		4 : Color(0.86, 0.87, 0.67, 1) # Bold accents 2
 	},
 	"cream": {
-		0: Color(0.86, 0.87, 0.67), # Background
-		1: Color(0.37, 0.46, 0.56), # Background Decor
-		2: Color(0.23, 0.12, 0.17), # Foreground
-		3: Color(0.79, 0.88, 0), # Bold accents
-		4: Color(1, 0, 0) # Bold accents 2
+		0: Color(0.86, 0.87, 0.67, 1), # Background
+		1: Color(0.37, 0.46, 0.56, 1), # Background Decor
+		2: Color(0.23, 0.12, 0.17, 1), # Foreground
+		3: Color(0.79, 0.88, 0, 1), # Bold accents
+		4: Color(1, 0, 0, 1) # Bold accents 2
 	}
 }
 
@@ -34,9 +34,9 @@ const cols_available = {
 const color_keys = {
 	0 : Color(0.37, 0.46, 0.56, 1), # Background
 	1 : Color(0.22, 0.22, 0.38, 1), # Background Decor
-	2 : Color(0.23, 0.12, 0.17), # Foreground
-	3 : Color(1, 0, 0), # Bold accents
-	4 : Color(0.86, 0.87, 0.67) # Bold accents 2
+	2 : Color(0.23, 0.12, 0.17, 1), # Foreground
+	3 : Color(1, 0, 0, 1), # Bold accents
+	4 : Color(0.86, 0.87, 0.67, 1) # Bold accents 2
 }
 
 func _ready():
@@ -44,25 +44,25 @@ func _ready():
 	$ColorButtons/TestButton.connect("pressed", self, "test_pressed")
 	var mat = ShaderMaterial.new()
 	mat.set_shader(palette_shader)
-	mat.set_shader_param("u_color_key", color_keys[0])
-	mat.set_shader_param("u_tolerance", 0.2)
+	for i in range(5):
+		print(i)
+		var key_name = "key_" + str(i)
+		mat.set_shader_param(key_name, color_keys[i])
+	#mat.set_shader_param("key_0", color_keys[0])
+	mat.set_shader_param("u_tolerance", 0.1)
 	for sprite in $Sprites.get_children():
 		var dmat = mat.duplicate(true)
 		sprite.set_material(dmat)
 
 func test_pressed():
-	var a
-	# set shader param
-	#$Sprites/moving_platfom.material.set_shader_param("u_color_key", Color(95,93,92))
-	a = color_counter
-	print(a)
+	print(color_counter)
 	if color_counter < 4:
 		color_counter += 1
 	else:
 		color_counter = 0
 	for child in $Sprites.get_children():
-		child.material.set_shader_param("u_replacement_color", cols_available["default"][color_counter])
-		print(child.material.get_shader_param("u_color_key"))
-		print(child.material.get_shader_param("u_replacement_color"))
+		for i in range(5):
+			child.material.set_shader_param("replacement_" + str(i + color_counter), cols_available["default"][color_counter])
+		print(child.material.get_shader_param("replacement_0"))
 	#$tester/spin_clean.material.set_shader_param("u_replacement_color", cols_available["default"][color_counter])
 	
