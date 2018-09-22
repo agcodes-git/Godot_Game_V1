@@ -42,27 +42,34 @@ const color_keys = {
 func _ready():
 	# Test: change background color
 	$ColorButtons/TestButton.connect("pressed", self, "test_pressed")
+	$ColorButtons/VBoxContainer/Default.connect("pressed", self, "default_pressed")
+	$ColorButtons/VBoxContainer/Cream.connect("pressed", self, "cream_pressed")
 	var mat = ShaderMaterial.new()
 	mat.set_shader(palette_shader)
 	for i in range(5):
 		print(i)
 		var key_name = "key_" + str(i)
 		mat.set_shader_param(key_name, color_keys[i])
-	#mat.set_shader_param("key_0", color_keys[0])
+	# THIS TOLERANCE IS IMPORTANT FOR ALIASING EFFECTS
 	mat.set_shader_param("u_tolerance", 0.1)
 	for sprite in $Sprites.get_children():
 		var dmat = mat.duplicate(true)
 		sprite.set_material(dmat)
 
 func test_pressed():
-	print(color_counter)
 	if color_counter < 4:
 		color_counter += 1
 	else:
 		color_counter = 0
 	for child in $Sprites.get_children():
 		for i in range(5):
-			child.material.set_shader_param("replacement_" + str(i + color_counter), cols_available["default"][color_counter])
-		print(child.material.get_shader_param("replacement_0"))
-	#$tester/spin_clean.material.set_shader_param("u_replacement_color", cols_available["default"][color_counter])
-	
+			child.material.set_shader_param("replacement_0", cols_available["cream"][color_counter])
+
+func default_pressed():
+	for child in $Sprites.get_children():
+		for i in range(5):
+			child.material.set_shader_param("replacement_" + str(i), cols_available["default"][i])
+func cream_pressed():
+	for child in $Sprites.get_children():
+		for i in range(5):
+			child.material.set_shader_param("replacement_" + str(i), cols_available["cream"][i])
